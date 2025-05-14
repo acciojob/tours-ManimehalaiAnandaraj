@@ -1,6 +1,5 @@
 import React from 'react';
-
-
+import Tour from './tour';
 
 const Tours = ({tours, setTours}) => {
     const removeTour = (id) => {
@@ -24,4 +23,5 @@ const Tours = ({tours, setTours}) => {
     </div>
   )
 }
+
 export default Tours

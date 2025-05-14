@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
+
+
 
 const Tour = ({tour, removeTour}) => {
     const [showMore, setShowMore] = useState(false);
   return (
-    <>
     <div>
         <div style={{
             border: '1px solid gray',
@@ -12,15 +13,15 @@ const Tour = ({tour, removeTour}) => {
              }}>
             <img src={tour.image} width={'100%'} height={'200px'}/>
             <p>{tour.name}</p>
-            <p>Price: ${tour.price}</p>
+            <p>Price: `${tour.price}`</p>
 
-            <p id={tour-item-para-${tour.id}}>{showMore ? tour.info : tour.info.substring(0, 200)}
-                <button id={see-more-${tour.id}} onClick={()=>setShowMore(!showMore)} style={{style: 'none', border: "none", background:"none", color:"blue", cursor: 'pointer'}}>
+            <p id={tour-item-para-`${tour.id}`}>{showMore ? tour.info : tour.info.substring(0, 200)}
+                <button id={see-more-`${tour.id}`} onClick={()=>setShowMore(!showMore)} style={{style: 'none', border: "none", background:"none", color:"blue", cursor: 'pointer'}}>
                     {showMore ? "Show less" : "See more"}
                 </button>
             </p>
             <button  onClick={()=>removeTour(tour.id)}
-            id={delete-btn-${tour.id}}
+            id={delete-btn-`${tour.id}`}
             style={{
                 width: "100%",
                 height: "30px",
@@ -32,8 +33,7 @@ const Tour = ({tour, removeTour}) => {
             }}>Remove tour</button>
         </div>
     </div>
-  </>
   )
 }
 
-export default Tour
+ export default Tour
