@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 const Tour = ({tour, removeTour}) => {
     const [showMore, setShowMore] = useState(false);
   return (
