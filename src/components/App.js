@@ -1,51 +1,43 @@
-import { useState, useEffect } from 'react';
-import Loading from './components/Loading';
-import Tours from './components/Tours';
-import './pakage.json'
+import React, { useEffect, useState } from 'react';
+import 'regenerator-runtime/runtime';
+import Loading from './Loading';
+import Tours from './Tours';
 
 const App = () => {
   const [tours, setTours] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-  const fetchTours = async () => {
-    setIsLoading(true);
+  const fetchTours = async ()=> {
+    setLoading(true);
     try {
-      const response = await fetch('D:\react projects\Tours - React Application\tours-ManimehalaiAnandaraj\package-lock.json');
+      const response = await fetch("https://www.course-api.com/react-tours-project");
       const data = await response.json();
+      console.log(data);
       setTours(data);
+      setLoading(false);
     } catch (error) {
-      console.error('Error fetching tours:', error);
+      console.log("Error fetching tours: ", error);
+      setLoading(false);
     }
-    setIsLoading(false);
-  };
+  }
 
   useEffect(() => {
     fetchTours();
-  }, []);
+  }, [])
 
-  const removeTour = (id) => {
-    setTours(tours.filter((tour) => tour.id !== id));
-  };
-
-  if (isLoading) {
-    return <Loading />;
-  }
 
   return (
-    <div className="app">
-      <h1>Our Tours</h1>
-      {tours.length === 0 ? (
-        <div className="no-tours">
-          <h2>No tours left</h2>
-          <button className="refresh-btn" onClick={fetchTours}>
-            Refresh
-          </button>
-        </div>
+    <div id='main'>
+      <h1 style={{textAlign:'center'}}>
+        {tours.length ? "Our Tours" : "No tours left"}
+      </h1>
+      {loading ? (
+      <Loading /> 
       ) : (
-        <Tours tours={tours} removeTour={removeTour} />
+        <Tours tours={tours} setTours={setTours}/>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
