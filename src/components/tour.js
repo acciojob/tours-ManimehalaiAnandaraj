@@ -5,7 +5,7 @@ const Tour = ({tour, removeTour}) => {
   return (
     <div>
         <div style={{
-            border: '1px solid gray',
+            border: "1px solid gray",
             width: "300px",
             padding: "10px",
              }}>
