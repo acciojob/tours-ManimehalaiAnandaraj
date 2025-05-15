@@ -1,5 +1,5 @@
 import React from 'react';
-import Tour from './Tour'
+import tour from './tour'
 
 const Tours = ({tours, setTours}) => {
     const removeTour = (id) => {

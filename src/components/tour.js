@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Tour = ({tour, removeTour}) => {
+const tour = ({tour, removeTour}) => {
     const [showMore, setShowMore] = useState(false);
   return (
     <div>
@@ -34,4 +34,4 @@ const Tour = ({tour, removeTour}) => {
   )
 }
 
- export default Tour
+ export default tour
