@@ -19,7 +19,7 @@ const Tour = ({ tour, removeTour }) => {
                     id={`see-more-${tour.id}`} 
                     onClick={() => setShowMore(!showMore)} 
                     style={{ border: "none", background: "none", color: "blue", cursor: 'pointer' }}>
-                    {showMore ? "Show less" : "See more"}
+                    {showMore ? "See less" : "Show More"}
                 </button>
             </p>
             <button 
@@ -34,7 +34,7 @@ const Tour = ({ tour, removeTour }) => {
                     cursor: 'pointer',
                     borderRadius: "10px",
                 }}>
-                Remove tour
+                Remove
             </button>
         </div>
     );
